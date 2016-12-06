@@ -5,6 +5,21 @@
 
 **This repository contains the code for the microservice delivering the web frontend for the *SportChef* project. For more information please take a look at our [project website](https://www.sportchef.ch/).**
 
+# Running *SportChef*
+
+## Using Docker
+
+The *sportchef/sportchef-frontend* docker image is available on DockerHub. To run *sportchef-frontend*, you have to specify a port mapping to map the ports of the application server inside the container (8080) to a port on your machine (e.g. 80) and you have to specify a folder on your machine to store the permanent data. The complete docker call looks like this:
+
+`docker run -d -p [local port]:80 sportchef/sportchef-frontend`
+
+## Building Docker locally
+
+`docker build -t sportchef/sportchef-frontend .`
+
+
+
+
 *Copyright (C) 2015, 2016 Marcus Fihlon*
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -16,4 +31,3 @@ You should have received a copy of the GNU Affero General Public License along w
 ## Throughput
 
 [![Throughput Graph](https://graphs.waffle.io/sportchef/sportchef-frontend/throughput.svg)](https://waffle.io/sportchef/sportchef-frontend/metrics/throughput)
-
