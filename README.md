@@ -1,7 +1,7 @@
 *SportChef Web Frontend*
 ========================
 
-[![Stories in Ready](https://badge.waffle.io/sportchef/sportchef-web.svg?label=ready&title=Ready)](http://waffle.io/sportchef/sportchef-web) [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
+[![Stories in Ready](https://badge.waffle.io/sportchef/sportchef-frontend.svg?label=ready&title=Ready)](http://waffle.io/sportchef/sportchef-frontend) [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
 
 **This repository contains the code for the microservice delivering the web frontend for the *SportChef* project. For more information please take a look at our [project website](https://www.sportchef.ch/).**
 
@@ -15,5 +15,5 @@ You should have received a copy of the GNU Affero General Public License along w
 
 ## Throughput
 
-[![Throughput Graph](https://graphs.waffle.io/sportchef/sportchef-web/throughput.svg)](https://waffle.io/sportchef/sportchef-web/metrics/throughput)
+[![Throughput Graph](https://graphs.waffle.io/sportchef/sportchef-frontend/throughput.svg)](https://waffle.io/sportchef/sportchef-frontend/metrics/throughput)
 
