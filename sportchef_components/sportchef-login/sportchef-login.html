@@ -1,0 +1,103 @@
+<!--
+    SportChef – Sports Competition Management Software
+    Copyright (C) 2016 Marcus Fihlon
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html" />
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html" />
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html" />
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html" />
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html" />
+<link rel="import" href="../../bower_components/paper-tabs/paper-tab.html" />
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html" />
+<link rel="import" href="../../bower_components/app-storage/app-localstorage/app-localstorage-document.html" />
+<link rel="import" href="sportchef-login-password.html" />
+<link rel="import" href="sportchef-login-code.html" />
+
+<dom-module id="sportchef-login">
+    <template>
+        <style>
+            :root {
+                --paper-tabs-selection-bar-color: #ee8802;
+            }
+
+            h2 {
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .title paper-icon-button {
+                color: rgb(180, 180, 180);
+                position: absolute;
+                right: 18px;
+                top: 18px;
+            }
+
+            paper-dialog {
+                border-radius: 10px;
+            }
+
+            paper-tabs {
+                --paper-tabs: {
+                    color: #ee8802;
+                }
+            }
+        </style>
+
+        <paper-dialog id="dialog-login" modal>
+            <div class="title">
+                <h2>{{localize('dialog_title')}}</h2>
+                <paper-icon-button icon="clear" dialog-dismiss></paper-icon-button>
+            </div>
+            <app-localstorage-document key="loginTypeSelection" data="{{loginTypeSelection}}" zero-value="0"></app-localstorage-document>
+            <paper-tabs selected="{{loginTypeSelection}}" noink>
+                <paper-tab>{{localize('tab_password')}}</paper-tab>
+                <paper-tab>{{localize('tab_code')}}</paper-tab>
+            </paper-tabs>
+            <iron-pages selected="{{loginTypeSelection}}">
+                <div><sportchef-login-password></sportchef-login-password></div>
+                <div><sportchef-login-code></sportchef-login-code></div>
+            </iron-pages>
+        </paper-dialog>
+    </template>
+
+    <script>
+        Polymer({
+            is: "sportchef-login",
+            behaviors: [
+                Polymer.AppLocalizeBehavior
+            ],
+            properties: {
+                language: {
+                    value: 'en'
+                },
+                loginTypeSelection: {
+                    value: 0
+                },
+                resources: {
+                    value: function () {
+                        return {
+                            'en': {
+                                'dialog_title': 'Get Started',
+                                'tab_password': 'Password Login',
+                                'tab_code': 'Get Code'
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</dom-module>
