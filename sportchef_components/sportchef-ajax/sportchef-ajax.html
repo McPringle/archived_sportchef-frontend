@@ -1,0 +1,62 @@
+<!--
+    SportChef – Sports Competition Management Software
+    Copyright (C) 2015, 2016 Marcus Fihlon
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html" />
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html" />
+
+<dom-module id="sportchef-ajax">
+    <template>
+        <iron-ajax auto url="[[apiUrl]]" handle-as="json" last-response="{{ajaxResponse}}" last-error="{{ajaxError}}" headers="[[generateHeaders()]]" content-type="[[contentType]]" body="[[body]]"></iron-ajax>
+    </template>
+
+    <script>
+        Polymer({
+            is: "sportchef-ajax",
+            generateHeaders: function(){
+                var headers = {};
+                var token = sessionStorage.getItem("token");
+                if (token != null) {
+                    headers.Token = token;
+                }
+                return headers;
+            },
+            properties: {
+                apiUrl: {
+                    type: String
+                },
+                ajaxResponse: {
+                    type: Object,
+                    notify: true,
+                    readonly: true
+                },
+                ajaxError: {
+                    type: Object,
+                    notify: true,
+                    readonly: true
+                },
+                contentType: {
+                    type: String,
+                    value: "application/json"
+                },
+                body: {
+                    type: Object,
+                    value: null
+                }
+            }
+        });
+    </script>
+</dom-module>
