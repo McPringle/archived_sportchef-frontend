@@ -17,13 +17,19 @@ You should have received a copy of the GNU Affero General Public License along w
 
 ### Using Docker
 
-The *sportchef/sportchef-frontend* docker image is available on DockerHub. To run *sportchef-frontend*, you have to specify a port mapping to map the ports of the application server inside the container (8080) to a port on your machine (e.g. 80) and you have to specify a folder on your machine to store the permanent data. The complete docker call looks like this:
+First, you have to create a network where all the running *SportChef* container instances can communicate with each other. You only need to do this once:
 
-`docker run -d -p [local port]:80 sportchef/sportchef-frontend`
+`docker network create sportchef`
+
+The *sportchef/sportchef-frontend* docker image is available on DockerHub. To run *sportchef-frontend*, you have to specify the mode (e.g. `-d` for detached), network (e.g. `sportchef`) and a port mapping to map the ports of the web server inside the container (always `80`) to a port on your machine (e.g. `8080`). The complete docker call looks like this:
+
+`docker run -d --net sportchef -p 8080:80 sportchef/sportchef-frontend`
 
 ### Building Docker locally
 
-`docker build -t sportchef/sportchef-frontend .`
+To build an own image of *sportchef-frontend*, you have to give it a name (tag it, e.g. `sportchef-frontend`) and to specify the directory containing the `Dockerfile` (e.g. `.` for the current working directory). The complete docker call looks like this:
+
+`docker build -t sportchef-frontend .`
 
 ## Throughput
 
