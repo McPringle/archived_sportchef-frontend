@@ -3,8 +3,11 @@ language: java
 services:
   - docker
 
+before_install:
+  - npm install -g bower
+
 script:
-  - cd .
+  - bower install
 
 after_success:
   - docker build -t sportchef/frontend .
