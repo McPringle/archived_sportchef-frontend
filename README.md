@@ -1,7 +1,7 @@
 *SportChef Web Frontend*
 ========================
 
-[![Stories in Ready](https://badge.waffle.io/sportchef/sportchef-frontend.svg?label=ready&title=Ready)](http://waffle.io/sportchef/sportchef-frontend) [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
+[![Build Status](https://travis-ci.org/sportchef/sportchef-frontend.svg?branch=master)](https://travis-ci.org/sportchef/sportchef-frontend)  [![Stories in Ready](https://badge.waffle.io/sportchef/sportchef-frontend.svg?label=ready&title=Ready)](http://waffle.io/sportchef/sportchef-frontend) [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
 
 **This repository contains the code for the microservice delivering the web frontend for the *SportChef* project. For more information please take a look at our [project website](https://www.sportchef.ch/).**
 
